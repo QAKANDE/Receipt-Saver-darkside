@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const receiptModel = require("../receipt/schema")
+const receiptModel = require("../receipt/schema");
+const userModel = require("../users/schema");
 
 
 router.get("/", async (req, res) => {
@@ -37,6 +38,12 @@ router.post("/sendreceipt", async (req, res , next) => {
   } catch (error) {
     next(error);
   }    
+})
+
+router.delete("/delete/:id", async (req, res, next) => {
+    const receiptToDelete = await receiptModel.findByIdAndDelete(req.params.id)
+    console.log(receiptToDelete)
+    res.send("Deleted")
 })
 
 module.exports = router
