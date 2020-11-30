@@ -7,8 +7,8 @@ const userModel = require("../users/schema")
 router.get("/", async (req, res) => {
     try {
         const user = await userModel.find()
-     res.status(201).send(users);
-        
+        res.send(users);
+        console.log(users)     
     } catch (error) {
         res.send(error)
     }    

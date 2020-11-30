@@ -17,7 +17,7 @@ server.use("/users", users);
 server.use("/receipt", receipt);
 
 
-mongoose.connect("'mongodb://localhost:27017/Receipts", {
+mongoose.connect("mongodb+srv://kudzayi:kudzayi@cluster0.gvwsa.mongodb.net/Receipts?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
